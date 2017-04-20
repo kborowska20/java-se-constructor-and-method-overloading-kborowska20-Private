@@ -8,7 +8,8 @@ class Product {
     String name;
     Float defaultPrice;
     ProductCategory productCategory;
-    ArrayList<Product> productList = new ArrayList<Product>();
+    static ArrayList<Product> productList = new ArrayList<Product>();
+    Supplier suppiler;
 
 
     public Product(){
@@ -17,7 +18,7 @@ class Product {
         this.defaultPrice = 0f;
         this.productCategory = productCategory;
         this.suppiler = suppiler;
-        this.productList = productList;
+        productList.add(this);
 
     }
 
@@ -27,17 +28,30 @@ class Product {
         this.defaultPrice = defaultPrice;
         this.productCategory = productCategory;
         this.suppiler = suppiler;
-        this.productList = productList;
+        productList.add(this);
 
     }
 
-    public ArrayList<Product> getAllProducts() {
+    public String toString() {
+        return "id: " + id
+                + " name: " + name
+                + " defaultPrice: " + defaultPrice
+                + " productCategory: " + productCategory
+                + " productCategory: " + productCategory
+                + " suppiler: " + suppiler;
+    }
+
+    public static ArrayList<Product> getAllProducts() {
         return productList;
     }
 
     public static void main(String [] args) {
 
-        Product product = new Product();
-        System.out.println(product.getAllProducts());
+        //Product product = new Product();
+        //ProductCategory pc = new ProductCategory("stal","jdhff","mleko");
+        //Product product1 = new Product("złaom", 2.55f, pc);
+        //Product product2 = new Product("maka", 133.44f, pc);
+        //System.out.println(Product.getAllProducts());
+        //System.out.println(product2.toString());
     }
 }

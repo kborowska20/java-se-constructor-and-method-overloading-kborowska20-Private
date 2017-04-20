@@ -1,7 +1,7 @@
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
-
-class FeaturedProductCategory extends ProductCategory {
+public class FeaturedProductCategory extends ProductCategory {
     Date startDate = new Date();
     Date endDate = new Date();
 

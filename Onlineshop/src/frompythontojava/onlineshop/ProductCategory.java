@@ -6,26 +6,26 @@ class ProductCategory {
     private final int id;
     String name;
     String departament;
-    String discrription;
+    String description;
 
     public ProductCategory(){
         this.id = count.incrementAndGet();
         this.name = "no name";
         this.departament = "no departament";
-        this.discrription = "no discrription";
+        this.description = "no discrription";
     }
 
-    public ProductCategory(String name,String departament,String discrription) {
+    public ProductCategory(String name,String departament,String description) {
         this.id = count.incrementAndGet();
         this.name = name;
         this.departament = departament;
-        this.discrription = discrription;
+        this.description = description;
     }
 
     public String toString() {
         return "id: " + id
-                + "name: " + name
-                + "departament: " + departament
-                + "discrription: " + discrription;
+                + " name: " + name
+                + " departament: " + departament
+                + " discrription: " + description;
     }
 }
