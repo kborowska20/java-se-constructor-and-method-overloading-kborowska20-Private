@@ -9,7 +9,7 @@ class Product {
     Float defaultPrice;
     ProductCategory productCategory;
     static ArrayList<Product> productList = new ArrayList<Product>();
-    Supplier suppiler;
+    Supplier supplier;
 
 
     public Product(){
@@ -17,7 +17,7 @@ class Product {
         this.name = "produkt";
         this.defaultPrice = 0f;
         this.productCategory = productCategory;
-        this.suppiler = suppiler;
+        this.supplier = supplier;
         productList.add(this);
 
     }
@@ -27,7 +27,7 @@ class Product {
         this.name = name;
         this.defaultPrice = defaultPrice;
         this.productCategory = productCategory;
-        this.suppiler = suppiler;
+        this.supplier = supplier;
         productList.add(this);
 
     }
@@ -37,21 +37,32 @@ class Product {
                 + " name: " + name
                 + " defaultPrice: " + defaultPrice
                 + " productCategory: " + productCategory
-                + " productCategory: " + productCategory
-                + " suppiler: " + suppiler;
+                + " supplier: " + supplier;
     }
 
     public static ArrayList<Product> getAllProducts() {
         return productList;
     }
 
-    public static void main(String [] args) {
+    public static ArrayList<Product> getAllProductsBy(ProductCategory productCategory) {
+        ArrayList<Product> allProductsByProductCategory = new ArrayList<Product>();
+        for(int i = 0; i < productList.size(); i++) {
+            Product product = productList.get(i);
+            if(product.productCategory == productCategory){
+                allProductsByProductCategory.add(product);
+            }
+        }
+        return allProductsByProductCategory;
+    }
 
-        //Product product = new Product();
-        //ProductCategory pc = new ProductCategory("stal","jdhff","mleko");
-        //Product product1 = new Product("złaom", 2.55f, pc);
-        //Product product2 = new Product("maka", 133.44f, pc);
-        //System.out.println(Product.getAllProducts());
-        //System.out.println(product2.toString());
+    public static ArrayList<Product> getAllProductsBy(Supplier productSupplier){
+        ArrayList<Product> allProductsByproductSupplier = new ArrayList<Product>();
+        for(int i = 0; i < productList.size(); i++) {
+            Product product = productList.get(i);
+            if(product.supplier == productSupplier){
+                allProductsByproductSupplier.add(product);
+            }
+        }
+        return allProductsByproductSupplier;
     }
 }
