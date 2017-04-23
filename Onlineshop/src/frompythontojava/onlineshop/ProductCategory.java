@@ -24,8 +24,8 @@ class ProductCategory {
 
     public String toString() {
         return "id: " + id
-                + " name: " + name
-                + " departament: " + departament
-                + " discrription: " + description;
+                + " || name: " + name
+                + " || departament: " + departament
+                + " || discrription: " + description;
     }
 }

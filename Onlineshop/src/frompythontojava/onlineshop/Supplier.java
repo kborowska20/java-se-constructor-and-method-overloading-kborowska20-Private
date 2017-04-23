@@ -1,10 +1,10 @@
 import java.util.concurrent.atomic.AtomicInteger;
 
-class Supplier {
+public class Supplier {
     private static final AtomicInteger count = new AtomicInteger(0);
     private final int id;
-    String name;
-    String description;
+    private String name;
+    private String description;
 
     public Supplier(){
         this.id = count.incrementAndGet();
@@ -19,9 +19,9 @@ class Supplier {
     }
 
     public String toString() {
-        return "id: " + id
-                + " name: " + name
-                + " discrription: " + description;
+        return "Id: " + id
+                + " || name: " + name
+                + " || discrription: " + description;
     }
 
 }

@@ -2,28 +2,51 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 
-class Basket {
-    private ArrayList<Product> productList;
+public class Basket {
+    private ArrayList<Product> productList = new ArrayList<Product>();;
     private Iterator iterator;
 
-    public Basket() {
-        this.iterator = iterator;
-        this.productList = new ArrayList<Product>();
+    public class ProductIterator implements Iterator{
+        int index = 0;
 
-    }
-
-    public Iterator getIterator(){ return this.iterator;}
-
-    public void addProduct(Product product){
-        this.productList.add(product);
-    }
-
-    public Boolean removeProduct(Product product){
-         if(this.productList.remove(product)) {
-            return true;
-        } else {
-             return false;
+        @Override
+        public Object next() {
+            if (this.hasNext()) {
+                return productList.get(index++);
+            }
+            return null;
         }
 
+        @Override
+        public boolean hasNext() {
+            if (index < productList.size()) {
+                return true;
+            }
+            return false;
+        }
+
+    }
+
+    public Iterator getIterator() {
+        return new ProductIterator();
+    }
+
+    public void addProduct(Product product) {
+        productList.add(product);
+    }
+
+    public Boolean removeProduct(Product product) {
+        Iterator iterator = this.getIterator();
+        while (iterator.hasNext()) {
+            if (product == iterator.next()) {
+                productList.remove(product);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public ArrayList<Product> getProductList() {
+        return productList;
     }
 }

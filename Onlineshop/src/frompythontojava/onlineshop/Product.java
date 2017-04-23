@@ -2,15 +2,14 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
-class Product {
+public class Product {
     private static final AtomicInteger count = new AtomicInteger(0);
-    private final int id;
-    String name;
-    Float defaultPrice;
+    final int id;
+    private String name;
+    private Float defaultPrice;
     ProductCategory productCategory;
-    static ArrayList<Product> productList = new ArrayList<Product>();
     Supplier supplier;
-
+    static ArrayList<Product> productList = new ArrayList<Product>();
 
     public Product(){
         this.id = count.incrementAndGet();
@@ -33,12 +32,11 @@ class Product {
     }
 
     public String toString() {
-        return "id: " + id
-                + " name: " + name
-                + " defaultPrice: " + defaultPrice
-                + " productCategory: " + productCategory
-                + " supplier: " + supplier;
-    }
+        return "Id: " + id
+                + " || name: " + name
+                + " || defaultPrice: " + defaultPrice
+                + "\nProduct Category: " + productCategory
+                + "\nsupplier: " + supplier;}
 
     public static ArrayList<Product> getAllProducts() {
         return productList;
