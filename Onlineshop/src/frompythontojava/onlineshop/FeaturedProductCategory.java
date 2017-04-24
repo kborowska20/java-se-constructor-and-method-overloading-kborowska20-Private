@@ -9,15 +9,16 @@ public class FeaturedProductCategory extends ProductCategory {
         super(name,departament,description);
         this.startDate = startDate;
         this.endDate = endDate;
+
     }
 
     @Override
     public boolean isavailable(){
         Date currentDate = new Date();
         if(currentDate.before(endDate) && currentDate.after(startDate)){
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
 
     @Override

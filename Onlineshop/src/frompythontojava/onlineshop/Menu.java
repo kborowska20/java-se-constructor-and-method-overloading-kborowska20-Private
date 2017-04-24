@@ -14,7 +14,7 @@ public class Menu {
                 "3.See product in my basket\n" +
                 "4.Remove product form your basket\n" +
                 "5.Change product's supplier\n" +
-                "6.List of all products in shop\n" +
+                "6.List available products in shop\n" +
                 "7.Get list of products from specific supplier\n" +
                 "8.Get list of products from specific product category\n" +
                 "9.Create new Supplier\n" +
@@ -40,7 +40,7 @@ public class Menu {
     public static void displayAllAvailableProducts() {
         for (int p = 0; p < Product.getAllProducts().size(); p++) {
             Product product = Product.getAllProducts().get(p);
-            if (product.getProductsCategory().isavailable()) {
+            if (product.getProductsCategory().isavailable() == true) {
                 System.out.println(product.toString());
             }
         }
@@ -132,7 +132,7 @@ public class Menu {
     public static void getListOfProductByProductCategory() {
         for(int p = 1; p < ProductCategory.getAllProductCategory().size(); p++){
             System.out.println("--------------------------------------------------------");
-            ProductCategory productCategory = ProductCategory.getProductCategory(p);
+            ProductCategory productCategory = ProductCategory.getAllProductCategory().get(p);
             System.out.println(productCategory.getName());
         }
         System.out.print("Filter by (product category id): ");
@@ -162,22 +162,24 @@ public class Menu {
     }
     public static void displayAvailableProduct() {
         Scanner userInput = new Scanner(System.in);
+        System.out.print("product id: ");
         int productId = userInput.nextInt();
         Product product = Product.getProduct(productId);
         if (product.getProductsCategory().isavailable()) {
-            System.out.println(product.toString());
+            System.out.println("product is avaiable");
         } else {
             System.out.println("product is not avaiable");
         }
     }
     public static void CreateProductCategoryOrFeaturedProductCategory(){
-        Scanner userInput = new Scanner(System.in);
+        Scanner userInputOp = new Scanner(System.in);
         System.out.println("1.Creat new Product Category");
-        System.out.println("2.Creat new Product Category ");
+        System.out.println("2.Creat new Featured Product Category ");
         System.out.print("choose option: ");
-        int optionMenu = userInput.nextInt();
-        switch (optionMenu){
+        int optionMenuoP = userInputOp.nextInt();
+        switch (optionMenuoP){
             case 1:
+                Scanner userInput = new Scanner(System.in);
                 System.out.print("Name: ");
                 String name = userInput.next();
                 System.out.print("description: ");
@@ -187,16 +189,17 @@ public class Menu {
                 ProductCategory productCategory = new ProductCategory(name,description,discrription);
                 break;
             case 2:
+                Scanner userInput1 = new Scanner(System.in);
                 System.out.print("Name: ");
-                String fname = userInput.next();
+                String fname = userInput1.next();
                 System.out.print("description: ");
-                String fdescription = userInput.next();
+                String fdescription = userInput1.next();
                 System.out.print("discrription: ");
-                String fdiscrription = userInput.next();
+                String fdiscrription = userInput1.next();
                 System.out.print("start date (format: dd-MMM-yyyy): ");
-                String ustartDate = userInput.next();
+                String ustartDate = userInput1.next();
                 System.out.print("end date (format: dd-MMM-yyyy): ");
-                String uendDate = userInput.next();
+                String uendDate = userInput1.next();
                 DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
                 Date startDate = new Date();
                 Date endDate = new Date();

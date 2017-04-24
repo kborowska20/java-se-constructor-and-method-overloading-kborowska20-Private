@@ -7,7 +7,7 @@ class ProductCategory {
     String name;
     String departament;
     String description;
-    static ArrayList<ProductCategory> categories = new ArrayList<ProductCategory>();
+    private static ArrayList<ProductCategory> categories = new ArrayList<ProductCategory>();
 
     public ProductCategory(){
         this.id = count.incrementAndGet();
@@ -44,6 +44,7 @@ class ProductCategory {
     public static ProductCategory getProductCategory(Integer id) {
         return categories.get(id - 1);
     }
+
     public boolean isavailable(){
         return true;
     }
