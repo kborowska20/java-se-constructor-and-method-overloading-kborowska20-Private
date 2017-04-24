@@ -63,4 +63,20 @@ public class Product {
         }
         return allProductsByproductSupplier;
     }
+
+    public void setSupplier(Supplier newSupplier){
+        this.supplier = newSupplier;
+    }
+
+    public static Product getProduct(Integer id) {
+        return productList.get(id - 1);
+    }
+
+    public ProductCategory getProductsCategory(){
+        return this.productCategory;
+    }
+
+    public void setProductsCategory(ProductCategory productCategory ){
+        this.productCategory = productCategory;
+    }
 }

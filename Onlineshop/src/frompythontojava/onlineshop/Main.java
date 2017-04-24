@@ -1,4 +1,3 @@
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class Main {
@@ -18,8 +17,38 @@ public class Main {
                 case 2:
                     Menu.addProductToMyBasket(basket);
                     break;
+                case 3:
+                    Menu.seeProductInMyBasket(basket);
+                    break;
+                case 4:
+                    Menu.removeProductFromMyBasket(basket);
+                    break;
+                case 5:
+                    Menu.changeSupplier();
+                    break;
                 case 6:
-                    Menu.displayAllProductsInShop();
+                    Menu.displayAllAvailableProducts();
+                    break;
+                case 7:
+                    Menu.getListOfProductBySupplier();
+                    break;
+                case 8:
+                    Menu.getListOfProductByProductCategory();
+                    break;
+                case 9:
+                    Menu.creatNewSupplier();
+                    break;
+                case 10:
+                    Menu.CreateProductCategoryOrFeaturedProductCategory();
+                    break;
+                case 11:
+                    Menu.displayAvailableProduct();
+                    break;
+                case 12:
+                    Menu.readProductCategoryDescription();
+                    break;
+                case 13:
+                    Menu.changeProductsCategory();
                     break;
                 case 0:
                     System.exit(0);
@@ -28,7 +57,3 @@ public class Main {
 
     }
 }
-// do drukowania
-//Iterator iter = basket.getIterator();
-//while (iter.hasNext()) {
-//   System.out.println(iter.next());
